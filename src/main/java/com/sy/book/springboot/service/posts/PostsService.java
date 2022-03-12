@@ -36,4 +36,12 @@ public class PostsService {
 
         return new PostsResponseDto(entity);
     }
+
+    @Transactional
+    public Long delete(Long id) {
+        Posts entity = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+        return id;
+    }
+
 }
